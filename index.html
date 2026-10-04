@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patel Travels</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#home">Patel <span>Travels</span></a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#destinations">Destinations</a></li>
+            <li class="nav-item"><a class="nav-link" href="#hotels">Hotels</a></li>
+            <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Inquiry</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Make Your Tour Amazing With Us!</h1>
+        <p>Find the best places for your next journey</p>
+
+        <!-- Search Form -->
+        <div class="search-box">
+            <div>
+                <label for="tripDestination">Destination</label>
+                <select id="tripDestination">
+                    <option value="">Select Destination</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Kashmir">Kashmir</option>
+                    <option value="Manali">Manali</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="checkin">Check In</label>
+                <input type="date" id="checkin" onclick="this.showPicker()">
+            </div>
+
+            <div>
+                <label for="checkout">Check Out</label>
+                <input type="date" id="checkout" onclick="this.showPicker()">
+            </div>
+
+            <div>
+                <label for="adults">Adults</label>
+                <select id="adults">
+                    <option value="1">1 Adult</option>
+                    <option value="2">2 Adults</option>
+                    <option value="3">3 Adults</option>
+                    <option value="4">4 Adults</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="children">Children</label>
+                <select id="children">
+                    <option value="0">0 Children</option>
+                    <option value="1">1 Child</option>
+                    <option value="2">2 Children</option>
+                    <option value="3">3 Children</option>
+                </select>
+            </div>
+
+            <button type="button" onclick="searchTrip()">Search</button>
+        </div>
+        <p id="searchMessage"></p>
+    </div>
+</section>
+
+<!-- Popular Destinations -->
+<section id="destinations" class="py-5">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2>Popular Destinations</h2>
+            <p>Explore our most popular travel destinations</p>
+            <button type="button" id="showAllButton" class="btn btn-outline-success" onclick="showAllTrips()" hidden>
+                Show All Destinations
+            </button>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="images/goa.jpg" class="card-img-top" alt="Goa">
+                    <div class="card-body">
+                        <h5 class="card-title">Goa</h5>
+                        <p class="card-text">Enjoy beautiful beaches and amazing places.</p>
+                        <a href="#contact" class="btn btn-success">Explore</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="images/kashmir.jpg" class="card-img-top" alt="Kashmir">
+                    <div class="card-body">
+                        <h5 class="card-title">Kashmir</h5>
+                        <p class="card-text">Explore beautiful mountains and valleys.</p>
+                        <a href="#contact" class="btn btn-success">Explore</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="images/manali.jpg" class="card-img-top" alt="Manali">
+                    <div class="card-body">
+                        <h5 class="card-title">Manali</h5>
+                        <p class="card-text">Enjoy nature, mountains and adventure.</p>
+                        <a href="#contact" class="btn btn-success">Explore</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="images/kerala.jpg" class="card-img-top" alt="Kerala">
+                    <div class="card-body">
+                        <h5 class="card-title">Kerala</h5>
+                        <p class="card-text">Discover green landscapes and backwaters.</p>
+                        <a href="#contact" class="btn btn-success">Explore</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="images/delhi.jpg" class="card-img-top" alt="Delhi">
+                    <div class="card-body">
+                        <h5 class="card-title">Delhi</h5>
+                        <p class="card-text">Explore historic monuments and landmarks.</p>
+                        <a href="#contact" class="btn btn-success">Explore</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="images/rajasthan.jpg" class="card-img-top" alt="Rajasthan">
+                    <div class="card-body">
+                        <h5 class="card-title">Rajasthan</h5>
+                        <p class="card-text">Experience royal palaces, forts and deserts.</p>
+                        <a href="#contact" class="btn btn-success">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Hotels -->
+<section id="hotels" class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2>Popular Hotels</h2>
+            <p>Find comfortable hotels for your trip</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="images/goa.jpg" class="card-img-top" alt="Goa Hotel">
+                    <div class="card-body">
+                        <h5 class="card-title">Goa Beach Hotel</h5>
+                        <p>Enjoy a relaxing stay near beautiful beaches.</p>
+                        <p><strong>₹2,500 / night</strong></p>
+                        <a href="#contact" class="btn btn-success">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="images/kashmir.jpg" class="card-img-top" alt="Kashmir Hotel">
+                    <div class="card-body">
+                        <h5 class="card-title">Kashmir Valley Hotel</h5>
+                        <p>Stay comfortably with beautiful mountain views.</p>
+                        <p><strong>₹3,000 / night</strong></p>
+                        <a href="#contact" class="btn btn-success">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="images/manali.jpg" class="card-img-top" alt="Manali Hotel">
+                    <div class="card-body">
+                        <h5 class="card-title">Manali Mountain Hotel</h5>
+                        <p>Enjoy a peaceful stay surrounded by nature.</p>
+                        <p><strong>₹2,000 / night</strong></p>
+                        <a href="#contact" class="btn btn-success">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="py-5">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2>Our Services</h2>
+            <p>We provide the best services for your journey</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card text-center p-3 h-100">
+                    <div class="card-body">
+                        <h4>✈️ Flight Booking</h4>
+                        <p>Book flights easily for your next trip.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card text-center p-3 h-100">
+                    <div class="card-body">
+                        <h4>🏨 Hotel Booking</h4>
+                        <p>Find comfortable hotels at affordable prices.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card text-center p-3 h-100">
+                    <div class="card-body">
+                        <h4>🧳 Tour Packages</h4>
+                        <p>Explore exciting tour packages for your holidays.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card text-center p-3 h-100">
+                    <div class="card-body">
+                        <h4>🚗 Transport</h4>
+                        <p>Enjoy convenient transportation during your trip.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card text-center p-3 h-100">
+                    <div class="card-body">
+                        <h4>🗺️ Travel Guide</h4>
+                        <p>Discover popular places with helpful travel guidance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card text-center p-3 h-100">
+                    <div class="card-body">
+                        <h4>🎧 Customer Support</h4>
+                        <p>Get assistance with your travel-related questions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Inquiry Form -->
+<section id="contact" class="py-5">
+    <div class="container">
+        <h2 class="text-center">Send Us an Inquiry</h2>
+        <p class="text-center">Plan your next trip with Patel Travels!</p>
+
+        <form id="inquiryForm" class="inquiry-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name">
+
+            <label for="phone">Mobile Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number">
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="destination">Destination</label>
+            <select id="destination" name="destination">
+                <option value="">Select Destination</option>
+                <option value="Goa">Goa</option>
+                <option value="Kashmir">Kashmir</option>
+                <option value="Manali">Manali</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Rajasthan">Rajasthan</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your trip" required minlength="10" maxlength="500"></textarea>
+
+            <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+        </form>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="about">
+    <div class="container">
+        <div class="footer-heading">
+            <div>
+                <h4>Patel</h4>
+                <h2>Travels</h2>
+            </div>
+            <a href="#home" class="back-top">BACK TO TOP ↑</a>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4 mb-4">
+                <div class="footer-box">
+                    <h2>About Patel Travels</h2>
+                    <p>Explore beautiful destinations with Patel Travels. We help you plan memorable trips with comfortable stays and exciting tour packages.</p>
+                    <a href="#contact" class="footer-button">CONTACT US ›</a>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="footer-box footer-links">
+                    <a href="#destinations">POPULAR DESTINATIONS</a>
+                    <a href="#hotels">HOTELS</a>
+                    <a href="#services">OUR SERVICES</a>
+                    <a href="#contact">CONTACT US</a>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="footer-box social-box">
+                    <h2>Follow Us</h2>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                        <a href="#" aria-label="Call"><i class="bi bi-telephone-fill"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-box app-box mt-3">
+                    <h2>Explore<br>Our Tours</h2>
+                    <a href="#destinations" class="footer-button">VIEW TOURS ›</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>Privacy Policy</span>
+            <span>Terms and Conditions</span>
+            <span>© 2026 Patel Travels. All Rights Reserved.</span>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
